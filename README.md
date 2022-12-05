@@ -1,7 +1,5 @@
 # Fashion-MNIST-CNN-Pytorch
 
-# Fashion MNIST Classification using CNN and Pytorch 
-
 We'll build a simple convolutional neural network in PyTorch and train it to recognize clothes using the Fashion MNIST dataset.
 
 ## Installation
