@@ -14,7 +14,41 @@ test_set = torchvision.datasets.FashionMNIST(root = ".", train=False,download=Tr
 
 ## General Information
 
-The default code runs on relu activation function with learning rate 0.1. We have 1000 examples of 28x28 pixels in grayscale (i.e. no rgb channels, hence the one). We can plot the test output.
+The neural network is as follows:
+```
+class Net(nn.Module): 
+    def __init__(self):
+
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=5)
+        torch.nn.init.xavier_uniform(self.conv1.weight)
+        #self.conv2_drop = nn.Dropout2d()
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=5)
+        
+        self.fc1 = nn.Linear(1024, 256)
+        self.fc2 = nn.Linear(256, 10)
+
+    def init_weights(self, m):
+        """Define the weights"""
+        return nn.init.xavier_uniform(m.weight)  # xavier initialization of weights
+
+    def forward(self, x):
+        """Define the forward function"""
+        #m = nn.Sigmoid()  sigmoid activation function
+        #m = nn.Tanh()  tanh activation function
+        #x = F.elu(F.max_pool2d(self.conv1(x), 2)) elu activation function
+        x = F.relu(F.max_pool2d(self.conv1(x), 2)) # relu activation function - default activation function
+        #x = F.dropout(x, training=self.training)
+        x = F.relu(F.max_pool2d(self.conv2(x), 2))
+        x = x.view(-1, 1024)
+        x = F.relu(self.fc1(x))
+        
+        x = self.fc2(x)
+        return F.log_softmax(x)
+```
+
+
+We have 1000 examples of 28x28 pixels in grayscale (i.e. no rgb channels, hence the one). We can plot the test output.
 ```
 with torch.no_grad():
   output = network(test_data)
