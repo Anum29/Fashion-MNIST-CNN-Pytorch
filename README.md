@@ -50,6 +50,10 @@ class Net(nn.Module):
         x = self.fc2(x)
         return F.log_softmax(x)
 ```
+During training the network `train(epoch)`, we calculate the accuracy on the training and test set.
+
+
+<img src="https://github.com/Anum29/Fashion-MNIST-CNN-Pytorch/blob/main/accuracy.png">
 
 
 We have 1000 examples of 28x28 pixels in grayscale (i.e. no rgb channels, hence the one). We can plot the test output.
@@ -59,6 +63,8 @@ with torch.no_grad():
 ```
 
 <img src="https://github.com/Anum29/Fashion-MNIST-CNN-Pytorch/blob/main/labeled_output.png">
+
+
 
 
 ## Requirements:
