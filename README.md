@@ -14,7 +14,7 @@ test_set = torchvision.datasets.FashionMNIST(root = ".", train=False,download=Tr
 
 ## General Information
 
-The default code runs on relu activation function with learning rate 0.1. One test data batch is a  tensor of shape: . This means we have 1000 examples of 28x28 pixels in grayscale (i.e. no rgb channels, hence the one). We can plot the test output.
+The default code runs on relu activation function with learning rate 0.1. We have 1000 examples of 28x28 pixels in grayscale (i.e. no rgb channels, hence the one). We can plot the test output.
 ```
 with torch.no_grad():
   output = network(test_data)
