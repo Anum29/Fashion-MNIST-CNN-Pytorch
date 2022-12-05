@@ -14,9 +14,11 @@ test_set = torchvision.datasets.FashionMNIST(root = ".", train=False,download=Tr
 
 ## General Information
 
-The neural network is as follows:
+The given neural network configuration is:
 
 <img src="https://github.com/Anum29/Fashion-MNIST-CNN-Pytorch/blob/main/nn class.png">
+
+Now, we can define the network class
 ```
 class Net(nn.Module): 
     def __init__(self):
