@@ -20,7 +20,7 @@ with torch.no_grad():
   output = network(test_data)
 ```
 
-<img src="https://github.com/Anum29/Fashion-MNIST-CNN-Pytorch/blob/main/output.png">
+<img src="https://github.com/Anum29/Fashion-MNIST-CNN-Pytorch/blob/main/labeled_output.png">
 
 
 ## Requirements:
